@@ -16,8 +16,9 @@ import edu.eci.pdsw.examples.model.Plato;
 public class VerificadorIvaEstandar implements VerificadorIVA{
 
     public float obtenerPorcentaje(ItemOrden p) {
-       return 0f;
-    }  
+        float pre = (float) p.getPrecio();
+        return pre * 0.19f;
+    }   
 
     @Override
     public float obtenerPorcentaje(Plato p) {

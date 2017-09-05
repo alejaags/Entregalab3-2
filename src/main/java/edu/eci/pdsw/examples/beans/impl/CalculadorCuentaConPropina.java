@@ -16,6 +16,13 @@ public class CalculadorCuentaConPropina implements CalculadorCuenta{
 
     @Override
     public int calcularCosto(Orden o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+		double total=0;
+		for (ItemOrden p:o.getItemsOrden()){
+			total+=p.getPrecio();
+		}
+		if (total>15000){
+                    total = total+(total*0.10);
+                }
+                return (int)total;
+	}
 }

@@ -10,6 +10,7 @@ import edu.eci.pdsw.examples.model.ExcepcionManejadorOrdenes;
 import edu.eci.pdsw.examples.model.Orden;
 import edu.eci.pdsw.examples.model.Plato;
 import edu.eci.pdsw.examples.services.ManejadorOrdenes;
+import edu.eci.pdsw.examples.services.ManejadorOrdenesFactory;
 
 /**
  *
@@ -18,7 +19,7 @@ import edu.eci.pdsw.examples.services.ManejadorOrdenes;
 public class SimpleApp {
 
     public static void main(String a[]) throws ExcepcionManejadorOrdenes {
-        ManejadorOrdenes mo=new ManejadorOrdenes();
+        ManejadorOrdenesFactory mo=new ManejadorOrdenesFactory();
         cargarOrdenes(mo);
         
         
@@ -27,7 +28,7 @@ public class SimpleApp {
         
     }
 
-    private static void cargarOrdenes(ManejadorOrdenes mo) {
+    private static void cargarOrdenes(ManejadorOrdenesFactory mo) {
 
         Orden o = new Orden();
         o.agregarItemOrden(new Plato("pizza", 7500));

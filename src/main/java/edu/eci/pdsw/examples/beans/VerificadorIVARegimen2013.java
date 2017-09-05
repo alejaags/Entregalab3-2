@@ -10,13 +10,14 @@ import edu.eci.pdsw.examples.model.Plato;
 
 /**
  *
- * @author JuanCamilo
+ * @author Alejandra Gómez & Sebastian Reyes
  */
 public class VerificadorIVARegimen2013 implements VerificadorIVA {
 
     public float obtenerPorcentaje(Bebida b) {
-       
-        return 0f;
+        int cal = b.getCalorias();
+        int pre = b.getPrecio();
+        return pre*0.29f;
     }
 
     @Override

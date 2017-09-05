@@ -51,12 +51,35 @@ public class CalculadorCuentasTest {
     }
     
     @Test
-    public void calculadorCuentaConPropinaTest() {
+    public void calculadorCuentaConIVA2016MayorTest() {
         Orden or = new Orden();
-        Bebida be = new Bebida("Pepsi", 2000, 1001);
+        Bebida be = new Bebida("Pepsi", 20000, 1001);
         or.agregarItemOrden(be);
         CalculadorCuentaConPropina cccp = new  CalculadorCuentaConPropina();
-        assertEquals(cccp.calcularCosto(or), 2580);
+        assertEquals(cccp.calcularCosto(or), 22000);
+        
+    }
+    @Test
+    public void calculadorCuentaConIVA2016MenorTest() {
+        Orden or = new Orden();
+        Bebida be = new Bebida("Pepsi", 2000, 999);
+        or.agregarItemOrden(be);
+        CalculadorCuentaConPropina cccp = new  CalculadorCuentaConPropina();
+        assertEquals(cccp.calcularCosto(or), 2000);
+        
+    }
+    
+    @Test
+    public void calculadorCuentaConIVATest() {
+        Orden or = new Orden();
+        Bebida be = new Bebida("Pepsi", 2000, 1000);
+        Plato pl = new Plato("pescado",10000);
+        Plato pl2 = new Plato("res",3100);
+        or.agregarItemOrden(be);
+        or.agregarItemOrden(pl);
+        or.agregarItemOrden(pl2);
+        CalcularCuentaConIva cci = new  CalcularCuentaConIva();
+        assertEquals(cci.calcularCosto(or), 17969);
         
     }
     
@@ -66,7 +89,7 @@ public class CalculadorCuentasTest {
         Plato pl = new Plato("Bandejapaisa", 2000);
         or.agregarItemOrden(pl);
         CalcularCuentaConIva cci = new  CalcularCuentaConIva();
-        assertEquals(cci.calcularCosto(or), 2380);
+        assertEquals(cci.calcularCosto(or), 2000);
         
     }
     
